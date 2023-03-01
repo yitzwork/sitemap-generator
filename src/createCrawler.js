@@ -38,6 +38,10 @@ module.exports = (uri, options = {}) => {
 
   const crawler = new Crawler(uri.href);
 
+  if(options.addFetchCondition){
+    crawler.addFetchCondition(options.addFetchCondition)
+  }
+  
   Object.keys(options).forEach(o => {
     if (has(crawler, o)) {
       crawler[o] = options[o];
